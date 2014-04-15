@@ -883,5 +883,7 @@ function datagov_fix_post_url($post_id)
     if (1 == sizeof($categories)) {
         $permalink = str_replace(site_url(), '', get_category_link($categories[0]) . $post->post_name);
         update_post_meta($post->ID, 'custom_permalink', $permalink);
+        $post->post_name = $permalink;
+        get_sample_permalink($post->ID, $post->post_name, $permalink);
     }
 }
